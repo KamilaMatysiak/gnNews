@@ -1,0 +1,15 @@
+@use './fonts';
+@use './variables';
+@use './button';
+@use './layout';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    color: var(--text-black);
+    background: var(--background-color);
+}

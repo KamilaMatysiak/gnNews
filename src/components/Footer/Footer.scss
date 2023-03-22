@@ -1,0 +1,20 @@
+.footer {
+    width: 100%;
+    max-height: 72px;
+    padding: 12px 0;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--background-white);
+    border-top: 1px solid var(--divider-color);
+
+    & &__time {
+        padding: 8px;
+    }
+
+    & &__articles {
+        padding: 8px;
+    }
+}

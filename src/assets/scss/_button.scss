@@ -1,0 +1,22 @@
+.button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--rounding);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &--primary {
+        color: var(--text-white);
+        background: var(--color-primary-400);
+
+        &:hover {
+            background: var(--color-primary-200);
+        }
+
+        &:active {
+            background: var(--color-primary-400);
+        }
+    }
+}
