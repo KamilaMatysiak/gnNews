@@ -1,13 +1,12 @@
 .navbar {
     width: 100%;
-    max-height: 72px;
-    padding: 12px 0;
+    height: 72px;
     
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    background: var(--background-white);
+    background: var(--background-primary);
     border-bottom: 1px solid var(--divider-color);
 
     & &__logo {
@@ -15,7 +14,7 @@
         text-decoration: none;
         font-size: 1.2em;
         padding: 8px 16px;
-        color: var(--text-black);
+        color: var(--text-primary);
     }
 
     & &__menu {
@@ -32,5 +31,15 @@
 
     & &__icon {
         cursor: pointer;
+
+        &--text {
+            padding: 8px 0;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }

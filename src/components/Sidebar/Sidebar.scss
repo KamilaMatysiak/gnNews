@@ -1,5 +1,7 @@
 .sidebar {
-    height: calc(100vh - 144px);
+    position: fixed;
+    height: calc(100vh - 146px);
     width: 256px;
-    background: var(--background-white);
+    background: var(--background-primary);
+    z-index: 1;
 }

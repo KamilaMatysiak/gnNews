@@ -1,11 +1,25 @@
 :root {
-    --text-black: #333;
+    .light-theme {
+        --text-primary: #333;
+        --text-secondary: #888;
+
+        --background-secondary: #F4F5F8;
+        --background-primary: #fff;
+        --background-news: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .dark-theme {
+        --text-primary: #fff;
+        --text-secondary: #ddd;
+
+        --background-secondary: #1E1F22;
+        --background-primary: #202123;
+        --background-news: #27272A;
+        transition: all 0.3s ease;
+    }
+
     --text-white: #fff;
-    --text-secondary: #888;
-
-    --background-color: #F4F5F8;
-    --background-white: #fff;
-
     --color-primary-600: #015382;
     --color-primary-400: #0B5D8C;
     --color-primary-200: #1D6F9E;
