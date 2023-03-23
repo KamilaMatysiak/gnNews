@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import './MainContent.scss'
 import NewsItem from './NewsItem/NewsItem';
+import {useAppSelector } from '../../app/hooks'
 
 const MainContent = () => {
-  const [isList, setIsList] = useState(true);
+  const newsView = useAppSelector(state => state.newsView.mode)
   const testData = [
     {title: "Poznańscy leśnicy odtwarzają mokradła",
      date: "22/03/2023",
@@ -54,9 +55,9 @@ const MainContent = () => {
 
   return (
     <div className="content">
-      <div className={`news-container news-container${isList ? '--list' : '--tile'}`}>
-      {testData.map((news) => (
-        <NewsItem title={news.title} date={news.date} author={news.author} isList={isList}/>
+      <div className={`news-container news-container${newsView === "list" ? '--list' : '--tile'}`}>
+      {testData.map((news, i) => (
+        <NewsItem key={i} title={news.title} date={news.date} author={news.author} viewMode={newsView}/>
       ))} 
       </div> 
     </div>
