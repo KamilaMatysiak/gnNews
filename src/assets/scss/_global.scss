@@ -9,6 +9,23 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: var(--rounding);
+
+    &:hover {
+        background: #777777;
+    }
+}
+
 body {
     color: var(--text-black);
     background: var(--background-color);
