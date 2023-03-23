@@ -1,16 +1,19 @@
 .news {
-    background: var(--background-news);
-    margin: 16px;
+    background: var(--background-news); 
     border-radius: var(--rounding);
-    padding-bottom: 8px;
+    
     display: flex;
     flex-direction: column;
 
     &--tile {
         max-width: 220px;
+        margin: 16px;
+        padding-bottom: 8px;
     }
     &--list {
         max-width: 100%;
+        padding: 8px;
+        margin: 8px;
     }
 
     & &__see-more {

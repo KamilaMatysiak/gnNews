@@ -2,3 +2,17 @@
     position: relative;
     flex: 1;
 }
+
+.sidebar-shown {
+    
+    .content {
+        width:calc(100% - 250px);
+        margin-left: 250px;
+        transition: all 0.3s;
+    }
+
+    .sidebar {
+        left: 0;
+        transition: all 0.3s ease-in;
+    }
+}

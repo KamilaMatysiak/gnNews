@@ -9,12 +9,22 @@
     background: var(--background-primary);
     border-bottom: 1px solid var(--divider-color);
 
+    & &__logo-container {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+    }
+
     & &__logo {
         font-family: 'Righteous', cursive;
         text-decoration: none;
         font-size: 1.2em;
-        padding: 8px 16px;
         color: var(--text-primary);
+    }
+
+    & &__hamburger {
+        margin: 16px;
+        height: 24px;
     }
 
     & &__menu {

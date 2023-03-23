@@ -2,6 +2,7 @@
     width: 100%;
     max-height: calc(100vh - 172px);
     overflow: auto;
+    transition: all 0.3s;
 }
 
 .news-container {

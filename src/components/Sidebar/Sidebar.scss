@@ -1,5 +1,7 @@
 .sidebar {
     position: fixed;
+    left: -250px;
+    transition: all 0.3s;
     height: calc(100vh - 146px);
     width: 256px;
     background: var(--background-primary);
