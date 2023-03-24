@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useTranslation } from 'react-i18next'
+import { useAppSelector } from '../../app/hooks'
 import './Footer.scss'
 
 const Footer = () => {
   const [time, setTime] = useState(new Date())
+  const news = useAppSelector((state) => state.news)
   const {t, i18n} = useTranslation()
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const Footer = () => {
   return (
     <div className='footer'>
       <p className='footer__time'>{getTime()}</p>
-      <p className='footer__articles'>{t('articlesNumber')}</p>
+      <p className='footer__articles'>{t('articlesNumber')} <>{news.news.totalResults}</></p>
     </div>
   )
 }

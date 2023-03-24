@@ -1,68 +1,40 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 import './MainContent.scss'
 import NewsItem from './NewsItem/NewsItem';
-import {useAppSelector } from '../../app/hooks'
+import {useAppSelector, useAppDispatch } from '../../app/hooks'
 import FeedbackModal from '../FeedbackModal/FeedbackModal';
+import { useParams } from 'react-router';
+import { fetchNews, ArticleType } from '../../features/newsSlice';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const MainContent = () => {
   const newsView = useAppSelector(state => state.newsView.mode)
-  const [open, setOpen] = useState(false);
+  const { country } = useParams();
+  const x = useAppSelector((state) => console.log(state))
+  const news = useAppSelector((state) => state.news)
+  const noNews = news.news.articles.length > 0 ? false : true
+  const dispatch = useAppDispatch()
 
-  const testData = [
-    {title: "Poznańscy leśnicy odtwarzają mokradła",
-     date: "22/03/2023",
-     author: "ePoznań.pl",
-    },
-    
-    {title: "Biedronka wypłaci pracownikom nagrody. Oto kwoty",
-     date: "22/03/2023",
-     author: "money.pl",
-    },
-    {title: "Poznańscy leśnicy odtwarzają mokradła",
-     date: "22/03/2023",
-     author: "ePoznań.pl",
-    },
-    
-    {title: "Biedronka wypłaci pracownikom nagrody. Oto kwoty",
-     date: "22/03/2023",
-     author: "money.pl",
-    },
-    {title: "Poznańscy leśnicy odtwarzają mokradła",
-     date: "22/03/2023",
-     author: "ePoznań.pl",
-    },
-    
-    {title: "Biedronka wypłaci pracownikom nagrody. Oto kwoty",
-     date: "22/03/2023",
-     author: "money.pl",
-    },
-    {title: "Poznańscy leśnicy odtwarzają mokradła",
-     date: "22/03/2023",
-     author: "ePoznań.pl",
-    },
-    
-    {title: "Biedronka wypłaci pracownikom nagrody. Oto kwoty",
-     date: "22/03/2023",
-     author: "money.pl",
-    },
-    {title: "Poznańscy leśnicy odtwarzają mokradła",
-     date: "22/03/2023",
-     author: "ePoznań.pl",
-    },
-    
-    {title: "Biedronka wypłaci pracownikom nagrody. Oto kwoty",
-     date: "22/03/2023",
-     author: "money.pl",
-    },
-  ]
+  useEffect(() => {
+    if(!country) dispatch(fetchNews("pl"))
+    if(country) dispatch(fetchNews(country))  
+  }, [])
 
   return (
     <div className="content">
       <FeedbackModal/>
       <div className={`news-container news-container${newsView === "list" ? '--list' : '--tile'}`}>
-      {testData.map((news, i) => (
-        <NewsItem key={i} title={news.title} date={news.date} author={news.author} viewMode={newsView}/>
-      ))} 
+        {news.news.isLoading 
+        ? <CircularProgress className='news-container__info' />
+        : <>
+          {noNews 
+          ? <div className='news-container__info'>No news found</div> 
+          : <>
+              {news.news.articles.map((article : ArticleType, i) => (
+                <NewsItem key={i} title={article.title} author={article.author} date={article.publishedAt} urlToImage={article.urlToImage} viewMode={newsView}/>
+              ))}
+           </>}
+         </>} 
       </div> 
     </div>
   )

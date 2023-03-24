@@ -37,3 +37,12 @@
         transform: scale(1.1);
     }
 }
+
+
+@media (max-width: 767px) {
+    .sidebar {
+        width: 100%;
+        left: -800px;
+        transition: all 0.5s;
+    }
+}

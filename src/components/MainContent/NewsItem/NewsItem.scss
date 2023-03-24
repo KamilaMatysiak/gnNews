@@ -6,6 +6,7 @@
     flex-direction: column;
 
     &--tile {
+        width: 20%;
         max-width: 220px;
         margin: 16px;
         padding-bottom: 8px;
@@ -55,5 +56,17 @@
         color: var(--text-secondary);
         font-size: 12px;
         margin: 4px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .news {
+        
+        &--tile {
+            width: 600px;
+            margin: 16px auto;
+            max-width: 80%;
+            
+        }
     }
 }

@@ -11,6 +11,8 @@ export const fetchCountries = createAsyncThunk('fetchCountries', async () =>{
 export type CountryType = {
     name: {common: string}
     flags: {svg: string}
+    translations: { pol: {common: string }}
+    cca2: string
 }
 
 interface CountriesState {

@@ -5,6 +5,7 @@ import lightModeSlice from "../features/lightModeSlice";
 import newsViewSlice from "../features/newsViewSlice";
 import sidebarSlice from "../features/sidebarSlice";
 import languageSlice from "../features/languageSlice";
+import newsSlice from "../features/newsSlice";
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         sidebar: sidebarSlice,
         countries: countriesSlice,
         feedbackModal: feedbackModalSlice,
+        news: newsSlice
     },
 })
 
