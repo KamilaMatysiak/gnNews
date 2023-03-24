@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-export const fetchNews = createAsyncThunk('fetchNews', async (country:string) =>{
+export const fetchNews = createAsyncThunk('fetchNews', async (country: string) => {
     const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=70e3710ad8e841289654fe82fa5f3e3b`);
     return res.data;
 })
@@ -45,11 +45,11 @@ export const NewsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchNews.fulfilled, (state, action: PayloadAction<{articles: [], totalResults: Number, isLoading: boolean}>) => {
+        builder.addCase(fetchNews.fulfilled, (state, action: PayloadAction<{ articles: [], totalResults: Number, isLoading: boolean }>) => {
             state.news = action.payload
             state.news.isLoading = false
         })
-    }   
+    }
 })
 
 export default NewsSlice.reducer

@@ -10,7 +10,7 @@ interface IProps {
   viewMode: string,
 }
 
-const NewsItem: FC<IProps> = ({title, date, author, urlToImage, viewMode}: IProps) => {
+const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, viewMode }: IProps) => {
   return (
     <div className={`news news${viewMode === "list" ? '--list' : '--tile'}`}>
       {viewMode === "tiles" && <img className='news__img' src={urlToImage ? urlToImage : noimg} alt='here will be img' />}
@@ -21,7 +21,7 @@ const NewsItem: FC<IProps> = ({title, date, author, urlToImage, viewMode}: IProp
           <p className='news-content__date'>{date}</p>
         </div>
       </div>
-      {viewMode === "tiles"&& <p className='news__see-more'>Zobacz więcej</p>}
+      {viewMode === "tiles" && <p className='news__see-more'>Zobacz więcej</p>}
     </div>
   )
 }
