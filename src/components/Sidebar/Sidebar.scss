@@ -6,4 +6,35 @@
     width: 256px;
     background: var(--background-primary);
     z-index: 1;
+
+    & &__content {
+        max-height: 100%;
+        max-width: 100%;
+        overflow: auto;
+    }
+}
+
+.country-item {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 8px;
+
+    & &__img {
+        max-width: 24px;
+        margin: 8px;
+    }
+
+    & &__name {
+        color: var(--text-primary);
+    }
+
+    &:hover &__name {
+        font-weight: 600;
+    }
+
+    &:hover &__img {
+        transform: scale(1.1);
+    }
 }

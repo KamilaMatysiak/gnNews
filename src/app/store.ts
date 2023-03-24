@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
+import countriesSlice from "../features/countriesSlice";
 import lightModeSlice from "../features/lightModeSlice";
 import newsViewSlice from "../features/newsViewSlice";
-import SidebarSlice from "../features/sidebarSlice";
+import sidebarSlice from "../features/sidebarSlice";
 
 export const store = configureStore({
     reducer: {
         newsView: newsViewSlice,
         lightMode: lightModeSlice,
-        sidebar: SidebarSlice,
+        sidebar: sidebarSlice,
+        countries: countriesSlice
     },
 })
 
