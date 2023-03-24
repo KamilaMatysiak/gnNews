@@ -2,9 +2,12 @@ import React, {useState} from 'react'
 import './MainContent.scss'
 import NewsItem from './NewsItem/NewsItem';
 import {useAppSelector } from '../../app/hooks'
+import FeedbackModal from '../FeedbackModal/FeedbackModal';
 
 const MainContent = () => {
   const newsView = useAppSelector(state => state.newsView.mode)
+  const [open, setOpen] = useState(false);
+
   const testData = [
     {title: "Poznańscy leśnicy odtwarzają mokradła",
      date: "22/03/2023",
@@ -55,6 +58,7 @@ const MainContent = () => {
 
   return (
     <div className="content">
+      <FeedbackModal/>
       <div className={`news-container news-container${newsView === "list" ? '--list' : '--tile'}`}>
       {testData.map((news, i) => (
         <NewsItem key={i} title={news.title} date={news.date} author={news.author} viewMode={newsView}/>

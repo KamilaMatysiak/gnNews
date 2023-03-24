@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import countriesSlice from "../features/countriesSlice";
+import feedbackModalSlice from "../features/feedbackSlice";
 import lightModeSlice from "../features/lightModeSlice";
 import newsViewSlice from "../features/newsViewSlice";
 import sidebarSlice from "../features/sidebarSlice";
@@ -9,7 +10,8 @@ export const store = configureStore({
         newsView: newsViewSlice,
         lightMode: lightModeSlice,
         sidebar: sidebarSlice,
-        countries: countriesSlice
+        countries: countriesSlice,
+        feedbackModal: feedbackModalSlice,
     },
 })
 
