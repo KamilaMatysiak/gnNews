@@ -1,6 +1,6 @@
 .sidebar {
     position: fixed;
-    left: -250px;
+    left: -280px;
     transition: all 0.3s;
     height: calc(100vh - 146px);
     width: 256px;
@@ -9,13 +9,12 @@
 
     & &__content {
         max-height: 100%;
-        max-width: 100%;
         overflow: auto;
     }
 }
 
 .country-item {
-    max-width: 100%;
+    max-width: 90%;
     display: flex;
     align-items: center;
     text-decoration: none;
