@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { NEWS_API_URL } from "../constants";
 
 
 export const fetchNews = createAsyncThunk('fetchNews', async (country:string) =>{

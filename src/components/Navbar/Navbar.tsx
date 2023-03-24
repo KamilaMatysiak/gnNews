@@ -17,6 +17,8 @@ import { toggleModal } from '../../features/feedbackSlice';
 import {useTranslation} from 'react-i18next';
 import { setLanguage } from '../../features/languageSlice';
 
+import {Link} from 'react-router-dom'
+
 const Navbar = () => {
   const newsView = useAppSelector(state => state.newsView.mode)
   const lightMode = useAppSelector(state => state.lightMode.mode)
@@ -45,7 +47,7 @@ const Navbar = () => {
   }
 
   const changeLightMode = () => {
-    console.log(lightMode)
+
     if(lightMode === "light") {
       dispatch(setLightMode("dark"));
     } else {
@@ -60,7 +62,7 @@ const Navbar = () => {
         <div className='navbar__hamburger' onClick={() => dispatch(toggleSidebar())}> 
         {sidebarState ? <CloseIcon/> : <MenuIcon/>}
         </div>
-        <a className='navbar__logo' href="/">gnNEWS</a>
+        <Link className='navbar__logo' to="/">gnNEWS</Link>
       </div>
       <ul className='navbar__menu'>
         <li className='menu-item' onClick={changeViewMode}>{newsView === "list" ? <AppsIcon className='menu-item__icon'/> : <ListIcon className='menu-item__icon'/>}</li>

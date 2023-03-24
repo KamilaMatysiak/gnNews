@@ -10,7 +10,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 const MainContent = () => {
   const newsView = useAppSelector(state => state.newsView.mode)
   const { country } = useParams();
-  const x = useAppSelector((state) => console.log(state))
   const news = useAppSelector((state) => state.news)
   const noNews = news.news.articles.length > 0 ? false : true
   const dispatch = useAppDispatch()
@@ -18,7 +17,7 @@ const MainContent = () => {
   useEffect(() => {
     if(!country) dispatch(fetchNews("pl"))
     if(country) dispatch(fetchNews(country))  
-  }, [])
+  }, [country])
 
   return (
     <div className="content">
