@@ -14,12 +14,27 @@ import { setLightMode } from '../../features/lightModeSlice'
 import { toggleSidebar } from '../../features/sidebarSlice';
 import { toggleModal } from '../../features/feedbackSlice';
 
+import {useTranslation} from 'react-i18next';
+import { setLanguage } from '../../features/languageSlice';
+
 const Navbar = () => {
   const newsView = useAppSelector(state => state.newsView.mode)
   const lightMode = useAppSelector(state => state.lightMode.mode)
   const sidebarState = useAppSelector(state => state.sidebar.open)
-  const open = useAppSelector((state) => state.feedbackModal.open)
+  const language = useAppSelector((state) => state.language.language)
+
   const dispatch = useAppDispatch()
+  const {t, i18n} = useTranslation()
+
+  const handleChangeLanguage = () => {
+    if(language === "pl") {
+      dispatch(setLanguage("en"))
+      i18n.changeLanguage("en");
+    } else {
+      dispatch(setLanguage("pl"))
+      i18n.changeLanguage("pl");
+    }  
+  }
 
   const changeViewMode = () => {
     if(newsView === "list") {
@@ -49,10 +64,10 @@ const Navbar = () => {
       </div>
       <ul className='navbar__menu'>
         <li className='menu-item' onClick={changeViewMode}>{newsView === "list" ? <AppsIcon className='menu-item__icon'/> : <ListIcon className='menu-item__icon'/>}</li>
-        <li className='menu-item'><p className='menu-item__icon menu-item__icon--text'>EN/PL</p></li>
+        <li className='menu-item' onClick={handleChangeLanguage}><p className='menu-item__icon menu-item__icon--text'>{language === "pl" ? 'EN' : 'PL'}</p></li>
         <li className='menu-item' onClick={changeLightMode}>{lightMode === "light" ? <DarkModeIcon className='menu-item__icon menu-item__icon--dark'/> : <WbSunnyIcon className="menu-item__icon menu-item__icon--light"/>}</li>
         <li className='menu-item'>
-          <button className='button button--primary' onClick={() => dispatch(toggleModal())}>SHOW</button>
+          <button className='button button--primary' onClick={() => dispatch(toggleModal())}>{t('feedbackButton')}</button>
         </li>
       </ul>
     </div>
