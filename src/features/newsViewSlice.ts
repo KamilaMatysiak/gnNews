@@ -6,7 +6,7 @@ interface NewsViewState {
 }
 
 const initialState: NewsViewState = {
-    mode: "tiles"
+    mode: localStorage.getItem("newsView") || "tiles"
 }
 
 export const NewsViewSlice = createSlice({
@@ -15,6 +15,7 @@ export const NewsViewSlice = createSlice({
     reducers: {
         setView(state, action: PayloadAction<string>) {
             state.mode = action.payload;
+            localStorage.setItem("newsView", state.mode) 
         }
     }
 })

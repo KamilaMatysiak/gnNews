@@ -6,7 +6,7 @@ interface LightModeState {
 }
 
 const initialState: LightModeState = {
-    mode: "light"
+    mode: localStorage.getItem("darkmode") || "light"
 }
 
 export const LightModeSlice = createSlice({
@@ -15,6 +15,7 @@ export const LightModeSlice = createSlice({
     reducers: {
         setLightMode(state, action: PayloadAction<string>) {
             state.mode = action.payload;
+            localStorage.setItem("darkmode", state.mode)
         }
     }
 })

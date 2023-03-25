@@ -6,7 +6,7 @@ interface LanguageState {
 }
 
 const initialState: LanguageState = {
-    language: "pl"
+    language: localStorage.getItem("language") || "pl"
 }
 
 export const LanguageSlice = createSlice({
@@ -15,6 +15,7 @@ export const LanguageSlice = createSlice({
     reducers: {
         setLanguage(state, action: PayloadAction<string>) {
             state.language = action.payload;
+            localStorage.setItem("language", state.language)
         }
     }
 })
