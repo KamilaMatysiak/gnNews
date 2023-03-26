@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import noimg from '../../../assets/img/no-img.png'
+import { getTime, getDate } from '../../../utils/dateManager'
 import './NewsItem.scss'
 
 interface IProps {
@@ -11,6 +12,12 @@ interface IProps {
 }
 
 const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, viewMode }: IProps) => {
+  
+  const formatDate = (date: string) => {
+    const newDate = new Date(date)
+    return `${getDate(newDate)} ${getTime(newDate)}`
+  }
+  
   return (
     <div className={`news news${viewMode === "list" ? '--list' : '--tile'}`}>
       {viewMode === "tiles" && <img className='news__img' src={urlToImage ? urlToImage : noimg} alt='here will be img' />}
@@ -18,7 +25,7 @@ const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, viewMode }: IPr
         <h1 className='news-content__title'>{title}</h1>
         <div className='news-content__details'>
           <p className='news-content__author'>{author}</p>
-          <p className='news-content__date'>{date}</p>
+          <p className='news-content__date'>{formatDate(date)}</p>
         </div>
       </div>
       {viewMode === "tiles" && <p className='news__see-more'>Zobacz więcej</p>}
