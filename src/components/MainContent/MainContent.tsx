@@ -5,6 +5,7 @@ import FeedbackModal from '../FeedbackModal/FeedbackModal';
 import { fetchNews, ArticleType } from '../../features/newsSlice';
 import { useAppSelector, useAppDispatch } from '../../app/hooks'
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next'
 
 import './MainContent.scss'
 
@@ -13,6 +14,7 @@ const MainContent = () => {
   const { country } = useParams();
   const news = useAppSelector((state) => state.news)
   const noNews = news.news.articles.length > 0 ? false : true
+  const {t, i18n} = useTranslation()
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -28,10 +30,10 @@ const MainContent = () => {
           ? <CircularProgress className='news-container__info' />
           : <>
             {noNews
-              ? <div className='news-container__info'>No news found</div>
+              ? <div className='news-container__info'>{t('noNews')}</div>
               : <>
                 {news.news.articles.map((article: ArticleType, i) => (
-                  <NewsItem key={i} title={article.title} author={article.author} date={article.publishedAt} urlToImage={article.urlToImage} viewMode={newsView} />
+                  <NewsItem key={i} title={article.title} author={article.author} date={article.publishedAt} url={article.url} urlToImage={article.urlToImage} viewMode={newsView} />
                 ))}
               </>}
           </>}

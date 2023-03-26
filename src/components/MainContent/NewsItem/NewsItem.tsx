@@ -7,11 +7,12 @@ interface IProps {
   title: string,
   date: string,
   author: string,
+  url: string,
   urlToImage: string,
   viewMode: string,
 }
 
-const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, viewMode }: IProps) => {
+const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, url, viewMode }: IProps) => {
   
   const formatDate = (date: string) => {
     const newDate = new Date(date)

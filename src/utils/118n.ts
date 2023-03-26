@@ -5,7 +5,7 @@ i18n
     .use(initReactI18next)
     .init({
         debug: true,
-        fallbackLng: 'pl',
+        fallbackLng: localStorage.getItem('language') || 'pl',
         interpolation: {
             escapeValue: false
         },
@@ -15,6 +15,7 @@ i18n
                 translation: {
                     feedbackButton: "Pokaż",
                     articlesNumber: "Liczba artykułów: ",
+                    noNews: "Nie znaleziono żadnych wiadomości"
                 }
             },
 
@@ -22,6 +23,7 @@ i18n
                 translation: {
                     feedbackButton: "Show",
                     articlesNumber: "Number of articles: ",
+                    noNews: "No articles were found",
                 }
             }
         }
