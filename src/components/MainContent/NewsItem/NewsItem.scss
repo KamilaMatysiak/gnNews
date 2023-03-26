@@ -1,15 +1,18 @@
+@import './NewsModal.scss';
+
 .news {
     background: var(--background-news); 
-    border-radius: var(--rounding);
-    
+    border-radius: var(--rounding); 
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 
     &--tile {
         width: 250px;
         margin: 16px;
         padding-bottom: 8px;
     }
+
     &--list {
         max-width: 100%;
         padding: 8px;

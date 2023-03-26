@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks'
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next'
 
+import { getTime, getDate } from '../../utils/dateManager'
 import './MainContent.scss'
 
 const MainContent = () => {
@@ -22,6 +23,11 @@ const MainContent = () => {
     if (country) dispatch(fetchNews(country))
   }, [country])
 
+  const formatDate = (date: string) => {
+    const newDate = new Date(date)
+    return `${getDate(newDate)} ${getTime(newDate)}`
+  }
+
   return (
     <div className="content">
       <FeedbackModal />
@@ -33,7 +39,15 @@ const MainContent = () => {
               ? <div className='news-container__info'>{t('noNews')}</div>
               : <>
                 {news.news.articles.map((article: ArticleType, i) => (
-                  <NewsItem key={i} title={article.title} author={article.author} date={article.publishedAt} url={article.url} urlToImage={article.urlToImage} viewMode={newsView} />
+                  <NewsItem 
+                      key={i} 
+                      title={article.title} 
+                      author={article.author} 
+                      date={formatDate(article.publishedAt)} 
+                      description={article.description}
+                      url={article.url}
+                      urlToImage={article.urlToImage} 
+                      viewMode={newsView} />
                 ))}
               </>}
           </>}

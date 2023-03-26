@@ -10,6 +10,7 @@ export const fetchNews = createAsyncThunk('fetchNews', async (country: string) =
 export type ArticleType = {
     author: string
     title: string
+    description: string
     url: string
     publishedAt: string
     urlToImage: string
