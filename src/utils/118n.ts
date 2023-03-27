@@ -16,6 +16,7 @@ i18n
                     feedbackButton: "Pokaż",
                     articlesNumber: "Liczba artykułów: ",
                     noNews: "Nie znaleziono żadnych wiadomości",
+                    seeMore: 'Zobacz więcej  ➜',
                     //feedbackModal
                     easy: "Przyjemności",
                     hard: "Trudności",
@@ -31,6 +32,7 @@ i18n
                     feedbackButton: "Show",
                     articlesNumber: "Number of articles: ",
                     noNews: "No articles were found",
+                    seeMore: 'See more  ➜',
                     //feedbackModal
                     easy: 'Fun',
                     hard: 'Struggles',

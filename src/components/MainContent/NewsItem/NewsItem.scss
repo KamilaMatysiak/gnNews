@@ -23,6 +23,7 @@
         margin: auto 16px 8px 16px;
         font-size: 14px;
         font-weight: 500;
+
     }
 
     & &__img {
@@ -30,6 +31,11 @@
         aspect-ratio: 3/2;
         object-fit: cover;
         border-radius: var(--rounding) var(--rounding) 0 0;
+    }
+
+    &:hover &__see-more {
+        font-weight: 600;
+        text-decoration: underline;
     }
 }
 

@@ -3,6 +3,7 @@ import React, { FC, useState } from 'react'
 import noimg from '../../../assets/img/no-img.png'
 import CloseIcon from '@mui/icons-material/Close';
 import { useAppSelector } from '../../../app/hooks';
+import { useTranslation } from 'react-i18next'
 import './NewsItem.scss'
 
 interface IProps {
@@ -18,6 +19,7 @@ interface IProps {
 const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, url, description, viewMode }: IProps) => {
   const [open, setOpen] = useState(false)
   const lightMode = useAppSelector((state) => state.lightMode.mode)
+  const {t, i18n} = useTranslation()
   
   return (
     <>
@@ -42,7 +44,7 @@ const NewsItem: FC<IProps> = ({ title, date, author, urlToImage, url, descriptio
             <p className='news-content__date'>{date}</p>
           </div>
         </div>
-        {viewMode === "tiles" && <p className='news__see-more'>Zobacz więcej</p>}
+        {viewMode === "tiles" && <p className='news__see-more'>{t('seeMore')}</p>}
       </div>
     </>
   )
