@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks'
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next'
 
-import { getTime, getDate } from '../../utils/dateManager'
+import { formatDate } from '../../utils/dateManager'
 import './MainContent.scss'
 
 const MainContent = () => {
@@ -23,10 +23,7 @@ const MainContent = () => {
     if (country) dispatch(fetchNews(country))
   }, [country])
 
-  const formatDate = (date: string) => {
-    const newDate = new Date(date)
-    return `${getDate(newDate)} ${getTime(newDate)}`
-  }
+
 
   return (
     <div className="content">
